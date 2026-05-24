@@ -216,3 +216,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# React/Node
+node_modules/
+dist/
+.env.local
+
+# 환경변수
+.env
