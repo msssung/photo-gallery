@@ -15,10 +15,13 @@ export default function SignupPage() {
       await api.post('/api/auth/signup', { username, password });
       navigate('/login');
     } catch (err) {
-      if (err.response?.status === 400) {
-        setError('이미 사용 중인 아이디입니다.');
+      const detail = err.response?.data?.detail;
+      if (Array.isArray(detail)) {
+        setError(detail.map((e) => e.msg).join(', '));
+      } else if (typeof detail === 'string') {
+        setError(detail);
       } else {
-        setError(`오류: ${err.response?.data?.detail || err.message}`);
+        setError('회원가입에 실패했습니다.');
       }
     }
   };
@@ -61,7 +64,7 @@ export default function SignupPage() {
               required
             />
           </div>
-          {error && <p className="error">{error}</p>}
+          {error && <p className="error">{typeof error === 'string' ? error : JSON.stringify(error)}</p>}
           <button type="submit">회원가입</button>
         </form>
 
