@@ -21,6 +21,9 @@ def send_message(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
+    if msg_data.receiver_id == current_user.id:
+        raise HTTPException(status_code=400, detail="Cannot send message to yourself")
+
     receiver = db.query(User).filter(User.id == msg_data.receiver_id).first()
     if not receiver:
         raise HTTPException(status_code=404, detail="Receiver not found")
@@ -123,6 +126,7 @@ def delete_message(
     if not message:
         raise HTTPException(status_code=404, detail="Message not found")
 
+    db.query(Message).filter(Message.parent_id == message_id).delete()
     db.delete(message)
     db.commit()
     return {"message": "Message deleted"}

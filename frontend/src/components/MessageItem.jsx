@@ -12,30 +12,38 @@ export default function MessageItem({ message, onReply, onDelete }) {
   };
 
   return (
-    <div className={`message-item ${!message.is_read ? 'unread' : ''}`}>
-      <div className="message-header">
-        <span className="sender">@{message.sender_username}</span>
-        <span className="date">
+    <div className="dm-item">
+      <div className="dm-header">
+        <div className="dm-sender-info">
+          <div className="dm-avatar">
+            <i className="ti ti-user" style={{ fontSize: '14px', color: '#C17F5A' }}></i>
+          </div>
+          <span className="dm-sender-name">{message.sender_username}</span>
+          {message.parent_id && <span className="dm-reply-badge">답장</span>}
+        </div>
+        <span className="dm-date">
           {new Date(message.created_at).toLocaleString('ko-KR')}
         </span>
-        {message.parent_id && <span className="reply-badge">답장</span>}
       </div>
-      <p className="message-content">{message.content}</p>
-      <div className="message-actions">
-        <button onClick={() => setReplying(!replying)}>Reply</button>
-        <button className="delete-btn" onClick={() => onDelete(message.id)}>Delete</button>
+
+      <p className="dm-content">{message.content}</p>
+
+      <div className="dm-actions">
+        <button className="dm-reply-btn" onClick={() => setReplying(!replying)}>Reply</button>
+        <button className="dm-delete-btn" onClick={() => onDelete(message.id)}>Delete</button>
       </div>
+
       {replying && (
-        <div className="reply-form">
+        <div className="dm-reply-form">
+          <p className="dm-reply-label">답장 대상: {message.sender_username}</p>
           <textarea
             value={replyContent}
             onChange={(e) => setReplyContent(e.target.value)}
             placeholder="답장 내용을 입력하세요"
-            rows={3}
           />
-          <div style={{ display: 'flex', gap: '0.5rem' }}>
-            <button onClick={handleReply}>전송</button>
-            <button className="btn-secondary" onClick={() => setReplying(false)}>취소</button>
+          <div className="dm-reply-btns">
+            <button className="dm-cancel-btn" onClick={() => setReplying(false)}>취소</button>
+            <button className="dm-send-btn" onClick={handleReply}>전송</button>
           </div>
         </div>
       )}

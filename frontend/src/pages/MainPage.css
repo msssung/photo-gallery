@@ -1,0 +1,269 @@
+/* ── Dark Main Page — scoped to .main-container ── */
+
+.main-container {
+  background: #1E1410;
+  color: #F0E6DC;
+  min-height: 100vh;
+}
+
+/* ── Navbar ── */
+
+.main-container .navbar {
+  background: #2A1E17;
+  border-bottom: 0.5px solid #3D2B20;
+  box-shadow: none;
+}
+
+.main-container .navbar h1 {
+  color: #F0E6DC;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.main-container .navbar-actions span {
+  color: #A08070;
+  font-size: 13px;
+}
+
+.main-container .navbar-actions button:first-of-type {
+  background: #C17F5A;
+  color: #1E1410;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 16px;
+}
+
+.main-container .navbar-actions button:first-of-type:hover {
+  background: #A86A45;
+}
+
+.main-container .navbar-actions button:not(:first-of-type) {
+  background: transparent;
+  border: 0.5px solid #3D2B20;
+  color: #A08070;
+  border-radius: 8px;
+  padding: 7px 16px;
+}
+
+.main-container .navbar-actions button:not(:first-of-type):hover {
+  background: #3D2B20;
+  color: #A08070;
+}
+
+/* ── Sidebar ── */
+
+.main-container .sidebar {
+  background: #2A1E17;
+  border: 0.5px solid #3D2B20;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.main-container .sidebar h3 {
+  color: #A08070;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.main-container .sidebar li {
+  color: #F0E6DC;
+  font-size: 14px;
+  border-bottom: none;
+}
+
+.main-container .sidebar li:hover {
+  background: #3D2B20;
+  border-radius: 8px;
+}
+
+/* ── Search Bar ── */
+
+.main-container .search-bar input {
+  background: #2E1F16;
+  border: 0.5px solid #5A3D2B;
+  border-radius: 8px;
+  color: #F0E6DC;
+  padding: 10px 16px;
+}
+
+.main-container .search-bar input::placeholder {
+  color: #7A6055;
+}
+
+.main-container .search-bar input:focus {
+  outline: 2px solid #C17F5A;
+  border-color: transparent;
+}
+
+.main-container .search-bar button[type="submit"] {
+  background: #C17F5A;
+  color: #1E1410;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 500;
+}
+
+.main-container .search-bar button[type="submit"]:hover {
+  background: #A86A45;
+}
+
+.main-container .search-bar button.btn-secondary {
+  background: transparent;
+  border: 0.5px solid #3D2B20;
+  color: #A08070;
+  padding: 10px 16px;
+}
+
+.main-container .search-bar button.btn-secondary:hover {
+  background: #3D2B20;
+}
+
+/* ── Photo Grid & Cards ── */
+
+.main-container .photo-grid {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.main-container .photo-card {
+  background: #3A2519;
+  border: 0.5px solid #5A3D2B;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.main-container .photo-card:hover {
+  box-shadow: 0 4px 16px rgba(193, 127, 90, 0.1);
+}
+
+.main-container .photo-info {
+  padding: 12px;
+}
+
+.main-container .photo-user {
+  color: #C17F5A;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.main-container .photo-info p {
+  color: #F0E6DC;
+  font-size: 14px;
+}
+
+.main-container .keywords {
+  background: #3D2B20 !important;
+  color: #A08070 !important;
+  border-radius: 20px;
+  padding: 2px 8px;
+  font-size: 12px !important;
+}
+
+/* Card action buttons */
+
+.main-container .card-actions button:not(.btn-secondary) {
+  background: transparent;
+  border: 0.5px solid #C17F5A;
+  color: #C17F5A;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 12px;
+}
+
+.main-container .card-actions button:not(.btn-secondary):hover {
+  background: #3D2B20;
+}
+
+.main-container .card-actions button.btn-secondary {
+  background: transparent;
+  border: 0.5px solid #3D2B20;
+  color: #A08070;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 12px;
+}
+
+.main-container .card-actions button.btn-secondary:hover {
+  background: #3D2B20;
+}
+
+/* Edit-mode inputs inside photo card */
+
+.main-container .photo-info input {
+  background: #1E1410;
+  border: 0.5px solid #3D2B20;
+  color: #F0E6DC;
+  border-radius: 8px;
+}
+
+.main-container .photo-info input::placeholder {
+  color: #5A4035;
+}
+
+.main-container .photo-info input:focus {
+  outline: 2px solid #C17F5A;
+  border-color: transparent;
+}
+
+/* ── DM Modal ── */
+
+.main-container .modal-overlay {
+  background: rgba(20, 12, 8, 0.75);
+}
+
+.main-container .modal {
+  background: #2A1E17;
+  border: 0.5px solid #3D2B20;
+  border-radius: 12px;
+}
+
+.main-container .modal h3 {
+  color: #F0E6DC;
+}
+
+.main-container .modal textarea {
+  background: #1E1410;
+  border: 0.5px solid #3D2B20;
+  color: #F0E6DC;
+  border-radius: 8px;
+}
+
+.main-container .modal textarea::placeholder {
+  color: #5A4035;
+}
+
+.main-container .modal textarea:focus {
+  outline: 2px solid #C17F5A;
+  border-color: transparent;
+}
+
+.main-container .modal-actions button:first-of-type {
+  background: #C17F5A;
+  color: #1E1410;
+  border: none;
+  border-radius: 8px;
+}
+
+.main-container .modal-actions button:first-of-type:hover {
+  background: #A86A45;
+}
+
+.main-container .modal-actions button.btn-secondary {
+  background: transparent;
+  border: 0.5px solid #3D2B20;
+  color: #A08070;
+  border-radius: 8px;
+}
+
+.main-container .modal-actions button.btn-secondary:hover {
+  background: #3D2B20;
+}
+
+/* ── Misc ── */
+
+.main-container .empty {
+  color: #A08070;
+}

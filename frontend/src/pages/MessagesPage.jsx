@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../api/axios';
 import MessageItem from '../components/MessageItem';
+import './MessagesPage.css';
 
 export default function MessagesPage() {
   const [messages, setMessages] = useState([]);
@@ -39,14 +40,27 @@ export default function MessagesPage() {
   };
 
   return (
-    <div className="main-container">
+    <div className="messages-page-wrap">
       <header className="navbar">
         <h1>메시지함</h1>
         <button onClick={() => navigate('/main')}>← 갤러리로</button>
       </header>
-      <div className="messages-list">
+
+      <div className="messages-page">
+        <div className="messages-page-header">
+          <h2>메시지함</h2>
+          <p>수신된 메시지 {messages.length}개</p>
+        </div>
+
         {messages.length === 0 ? (
-          <p className="empty">받은 메시지가 없습니다.</p>
+          <div className="dm-empty">
+            <div className="dm-empty-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3D2B20" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+              </svg>
+            </div>
+            <p>받은 메시지가 없습니다.</p>
+          </div>
         ) : (
           messages.map((msg) => (
             <MessageItem

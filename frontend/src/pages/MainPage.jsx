@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import api from '../api/axios';
 import PhotoCard from '../components/PhotoCard';
 import SearchBar from '../components/SearchBar';
+import './MainPage.css';
 
 export default function MainPage() {
   const [photos, setPhotos] = useState([]);
@@ -11,6 +12,7 @@ export default function MainPage() {
   const [dmContent, setDmContent] = useState('');
   const navigate = useNavigate();
 
+  const isLoggedIn = !!localStorage.getItem('access_token');
   const currentUserId = parseInt(localStorage.getItem('user_id'));
   const currentUsername = localStorage.getItem('username');
 
@@ -107,21 +109,27 @@ export default function MainPage() {
         </aside>
 
         <main className="photo-area">
-          <SearchBar onSearch={handleSearch} />
-          {photos.length === 0 ? (
-            <p className="empty">사진이 없습니다.</p>
+          {isLoggedIn ? (
+            <>
+              <SearchBar onSearch={handleSearch} />
+              {photos.length === 0 ? (
+                <p className="empty">사진이 없습니다.</p>
+              ) : (
+                <div className="photo-grid">
+                  {photos.map((photo) => (
+                    <PhotoCard
+                      key={photo.id}
+                      photo={photo}
+                      isOwner={photo.user_id === currentUserId}
+                      onDm={() => handleDmOpen(photo.user_id, photo.username)}
+                      onUpdate={handlePhotoUpdate}
+                    />
+                  ))}
+                </div>
+              )}
+            </>
           ) : (
-            <div className="photo-grid">
-              {photos.map((photo) => (
-                <PhotoCard
-                  key={photo.id}
-                  photo={photo}
-                  isOwner={photo.user_id === currentUserId}
-                  onDm={() => handleDmOpen(photo.user_id, photo.username)}
-                  onUpdate={handlePhotoUpdate}
-                />
-              ))}
-            </div>
+            <p className="empty">사진을 보려면 로그인하세요.</p>
           )}
         </main>
       </div>

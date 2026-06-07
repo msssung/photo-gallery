@@ -1,0 +1,92 @@
+/* ── Upload Page — scoped to .upload-page-bg and .upload-page ── */
+
+.upload-page-bg {
+  background: #1E1410;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-page {
+  background: #2A1E17;
+  border: 0.5px solid #3D2B20;
+  border-radius: 16px;
+  margin: 0;
+}
+
+.upload-page h2 {
+  color: #F0E6DC;
+  font-weight: 500;
+}
+
+/* File input container */
+.upload-page input[type="file"] {
+  background: #2E1F16;
+  border: 0.5px solid #3D2B20;
+  border-radius: 8px;
+  color: #A08070;
+  cursor: pointer;
+}
+
+.upload-page input[type="file"]::file-selector-button {
+  background: #3A2519;
+  color: #F0E6DC;
+  border: 0.5px solid #5A3D2B;
+  border-radius: 6px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  transition: background 0.15s;
+}
+
+.upload-page input[type="file"]::file-selector-button:hover {
+  background: #4A2E1E;
+}
+
+/* Text inputs */
+.upload-page input[type="text"] {
+  background: #2E1F16;
+  border: 0.5px solid #3D2B20;
+  border-radius: 8px;
+  color: #F0E6DC;
+}
+
+.upload-page input[type="text"]::placeholder {
+  color: #A08070;
+}
+
+.upload-page input[type="text"]:focus {
+  outline: 2px solid #C17F5A;
+  border-color: transparent;
+}
+
+/* Upload button */
+.upload-page button[type="submit"] {
+  background: #C17F5A;
+  color: #1E1410;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  width: 100%;
+}
+
+.upload-page button[type="submit"]:hover {
+  background: #A86A45;
+}
+
+/* Cancel button */
+.upload-page button.btn-secondary {
+  background: transparent;
+  border: 0.5px solid #3D2B20;
+  color: #C4A898;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.upload-page button.btn-secondary:hover {
+  background: #3D2B20;
+  color: #A08070;
+}

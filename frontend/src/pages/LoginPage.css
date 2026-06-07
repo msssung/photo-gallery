@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Noto+Serif+KR:wght@400;500&display=swap');
+
+/* ── Dark Login Layout — all rules scoped to .dark-login ── */
+
+.dark-login {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Left Panel ── */
+
+.dll-left {
+  flex: 1;
+  background: #1E1410;
+  padding: 48px 52px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.dll-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(193, 127, 90, 0.08);
+  pointer-events: none;
+}
+
+.dll-circle-1 { width: 120px; height: 120px; top: 30px; right: 30px; border: 0.5px solid rgba(193,127,90,0.12); z-index: 1; }
+.dll-circle-2 { width: 60px;  height: 60px;  top: 60px; right: 60px; border: 0.5px solid rgba(193,127,90,0.10); z-index: 1; }
+.dll-circle-3 { width: 90px;  height: 90px;  bottom: 40px; left: 30px; border: 0.5px solid rgba(193,127,90,0.08); z-index: 1; }
+
+.dll-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 200px;
+  font-weight: 700;
+  color: rgba(193, 127, 90, 0.06);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+  text-align: center;
+}
+
+.dll-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 3;
+}
+
+.dll-logo-icon {
+  width: 30px;
+  height: 30px;
+  background: #C17F5A;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dll-logo-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #F0E6DC;
+  letter-spacing: 0.02em;
+}
+
+.dll-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
+}
+
+.dll-content h1 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 46px;
+  font-weight: 400;
+  color: #F0E6DC;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.dll-content > p {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px;
+  color: #C4A898;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.dll-features {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 0;
+}
+
+.dll-feature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.dll-feature-label {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 11px;
+  color: #A08070;
+  letter-spacing: 0.03em;
+}
+
+/* Bottom Divider */
+
+.dll-bottom-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 3;
+}
+
+.dll-divider-line {
+  flex: 1;
+  height: 0.5px;
+  background: rgba(193, 127, 90, 0.2);
+}
+
+.dll-bottom-divider span {
+  font-size: 11px;
+  color: #5A4035;
+  letter-spacing: 0.06em;
+}
+
+/* ── Right Panel ── */
+
+.dll-right {
+  width: 560px;
+  flex-shrink: 0;
+  background: #2A1E17;
+  border-left: 0.5px solid #3D2B20;
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dll-eyebrow {
+  font-size: 11px;
+  color: #C17F5A;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.dll-right h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: #F0E6DC;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+
+.dll-subtitle {
+  font-size: 13px;
+  color: #A08070;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.dll-right form {
+  display: flex;
+  flex-direction: column;
+}
+
+.dll-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.dll-field label {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 11px;
+  color: #A08070;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.dll-field input {
+  background: #1E1410;
+  border: 0.5px solid #3D2B20;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+  color: #F0E6DC;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+}
+
+.dll-field input::placeholder {
+  color: #5A4035;
+}
+
+.dll-field input:focus {
+  outline: 2px solid #C17F5A;
+  border-color: transparent;
+}
+
+.dll-submit {
+  background: #C17F5A;
+  color: #1E1410;
+  border: none;
+  border-radius: 10px;
+  padding: 13px;
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+  margin-top: 6px;
+  margin-bottom: 18px;
+  cursor: pointer;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background 0.15s;
+}
+
+.dll-submit:hover {
+  background: #A86A45;
+}
+
+.dll-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.dll-divider::before,
+.dll-divider::after {
+  content: '';
+  flex: 1;
+  height: 0.5px;
+  background: #3D2B20;
+}
+
+.dll-divider span {
+  font-size: 12px;
+  color: #7A6055;
+}
+
+.dll-signup {
+  background: transparent;
+  border: 0.5px solid #3D2B20;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 14px;
+  color: #A08070;
+  width: 100%;
+  cursor: pointer;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background 0.15s;
+}
+
+.dll-signup:hover {
+  background: #3D2B20;
+  color: #A08070;
+}
+
+.dll-footer {
+  text-align: center;
+  font-size: 12px;
+  color: #7A6055;
+  margin-top: 14px;
+}
+
+.dll-footer a {
+  color: #C17F5A;
+  text-decoration: none;
+}
+
+.dark-login .error {
+  color: #E8A080;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+/* ── User list section in left panel ── */
+
+.dll-user-divider {
+  border-top: 0.5px solid rgba(193, 127, 90, 0.15);
+  margin: 24px 0 16px;
+}
+
+.dll-user-title {
+  font-size: 11px;
+  color: #7A6055;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.dll-user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dll-user-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dll-user-avatar {
+  width: 24px;
+  height: 24px;
+  background: #3A2519;
+  border-radius: 50%;
+  border: 0.5px solid #5A3D2B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dll-user-name {
+  font-size: 13px;
+  color: #C4A898;
+}

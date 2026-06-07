@@ -1,0 +1,252 @@
+/* ── Messages Page — scoped to .messages-page-wrap ── */
+
+.messages-page-wrap {
+  background: #1E1410;
+  min-height: 100vh;
+}
+
+/* Navbar */
+
+.messages-page-wrap .navbar {
+  background: #2A1E17;
+  border-bottom: 0.5px solid #3D2B20;
+  box-shadow: none;
+}
+
+.messages-page-wrap .navbar h1 {
+  color: #F0E6DC;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.messages-page-wrap .navbar button {
+  background: #C17F5A;
+  color: #1E1410;
+  border: none;
+  border-radius: 7px;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.messages-page-wrap .navbar button:hover {
+  background: #A86A45;
+}
+
+/* Content area */
+
+.messages-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 28px 32px;
+}
+
+.messages-page-header {
+  margin-bottom: 24px;
+}
+
+.messages-page-header h2 {
+  font-size: 20px;
+  font-weight: 400;
+  color: #F0E6DC;
+  margin-bottom: 4px;
+}
+
+.messages-page-header p {
+  font-size: 12px;
+  color: #7A6055;
+}
+
+/* ── Message Item ── */
+
+.dm-item {
+  background: #2A1E17;
+  border: 0.5px solid #3D2B20;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 10px;
+}
+
+.dm-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.dm-sender-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dm-avatar {
+  width: 30px;
+  height: 30px;
+  background: #3A2519;
+  border-radius: 50%;
+  border: 0.5px solid #5A3D2B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: #C17F5A;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.dm-sender-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #F0E6DC;
+}
+
+.dm-reply-badge {
+  font-size: 10px;
+  background: #3A2519;
+  color: #C17F5A;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.dm-date {
+  font-size: 11px;
+  color: #A08070;
+}
+
+.dm-content {
+  font-size: 13px;
+  color: #C4A898;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.dm-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.dm-reply-btn {
+  background: #C17F5A;
+  color: #1E1410;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+
+.dm-reply-btn:hover {
+  background: #A86A45;
+}
+
+.dm-delete-btn {
+  background: transparent;
+  border: 0.5px solid #3D2B20;
+  color: #7A6055;
+  border-radius: 6px;
+  padding: 5px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+
+.dm-delete-btn:hover {
+  background: #3D2B20;
+}
+
+/* Reply form */
+
+.dm-reply-form {
+  border-top: 0.5px solid #3D2B20;
+  padding-top: 14px;
+  margin-top: 14px;
+}
+
+.dm-reply-label {
+  font-size: 11px;
+  color: #A08070;
+  margin-bottom: 8px;
+}
+
+.dm-reply-form textarea {
+  width: 100%;
+  background: #1E1410;
+  border: 0.5px solid #3D2B20;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: #F0E6DC;
+  resize: none;
+  height: 72px;
+  font-family: inherit;
+}
+
+.dm-reply-form textarea::placeholder {
+  color: #A08070;
+}
+
+.dm-reply-form textarea:focus {
+  outline: 2px solid #C17F5A;
+  border-color: transparent;
+}
+
+.dm-reply-btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.dm-cancel-btn {
+  background: transparent;
+  border: 0.5px solid #3D2B20;
+  color: #A08070;
+  border-radius: 7px;
+  padding: 7px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+
+.dm-cancel-btn:hover {
+  background: #3D2B20;
+}
+
+.dm-send-btn {
+  background: #C17F5A;
+  color: #1E1410;
+  border: none;
+  border-radius: 7px;
+  padding: 7px 18px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+
+.dm-send-btn:hover {
+  background: #A86A45;
+}
+
+/* Empty state */
+
+.dm-empty {
+  text-align: center;
+  padding: 64px 0;
+}
+
+.dm-empty-icon {
+  margin-bottom: 12px;
+}
+
+.dm-empty p {
+  font-size: 13px;
+  color: #5A4035;
+}

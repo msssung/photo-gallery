@@ -1,0 +1,322 @@
+{
+  "generated_at": "2026-06-07T16:57:21.113572",
+  "summary": {
+    "total": 39,
+    "passed": 39,
+    "failed": 0
+  },
+  "results": [
+    {
+      "tc": "TC001",
+      "step": 1,
+      "description": "Signup with empty username → 400/422",
+      "expected": "400 or 422",
+      "actual": "422 {\"detail\":[{\"type\":\"value_error\",\"loc\":[\"body\",\"username\"],\"msg\":\"Value error, U",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC001",
+      "step": 2,
+      "description": "Signup with password < 4 chars → 400/422",
+      "expected": "400 or 422",
+      "actual": "422 {\"detail\":[{\"type\":\"value_error\",\"loc\":[\"body\",\"password\"],\"msg\":\"Value error, P",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC001",
+      "step": 3,
+      "description": "Signup with mismatched passwords → 400",
+      "expected": "400",
+      "actual": "400 {\"detail\":\"Username already taken\"}",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC001",
+      "step": 4,
+      "description": "Signup with duplicate username → 400",
+      "expected": "400",
+      "actual": "400 {\"detail\":\"Username already taken\"}",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC001",
+      "step": 5,
+      "description": "Signup with valid data → 201",
+      "expected": "201",
+      "actual": "201 {\"id\":12,\"username\":\"tc001_fresh_1780818968\"}",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC001",
+      "step": 6,
+      "description": "Login with newly created account → 200 + token",
+      "expected": "200 + access_token",
+      "actual": "200 has_token=True",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC002",
+      "step": 1,
+      "description": "Login with empty password → 400/422",
+      "expected": "400/401/422",
+      "actual": "401 {\"detail\":\"Incorrect username or password\"}",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC002",
+      "step": 2,
+      "description": "Login with non-existent user → 401",
+      "expected": "401 or 400",
+      "actual": "401 {\"detail\":\"Incorrect username or password\"}",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC002",
+      "step": 3,
+      "description": "Login with wrong password → 401",
+      "expected": "401 or 400",
+      "actual": "401 {\"detail\":\"Incorrect username or password\"}",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC002",
+      "step": 4,
+      "description": "Login with correct credentials → 200 + access_token",
+      "expected": "200 + access_token",
+      "actual": "200 has_token=True",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC003",
+      "step": 1,
+      "description": "Logout with valid token → 200",
+      "expected": "200",
+      "actual": "200 {\"message\":\"Successfully logged out\"}",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC003",
+      "step": 2,
+      "description": "Logout with no/expired token → 200 or 401",
+      "expected": "200 or 401",
+      "actual": "200 {\"message\":\"Successfully logged out\"}",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC004",
+      "step": 1,
+      "description": "GET /api/users without auth → 200 + list",
+      "expected": "200 + list",
+      "actual": "200 is_list=True",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC004",
+      "step": 2,
+      "description": "User list items contain no photo data",
+      "expected": "no image_path / keywords fields",
+      "actual": "keys=['username', 'id']",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC004",
+      "step": 3,
+      "description": "GET /api/users with auth → 200 + list",
+      "expected": "200 + list",
+      "actual": "200",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC005",
+      "step": 1,
+      "description": "GET /api/photos with auth → 200 + list",
+      "expected": "200 + list",
+      "actual": "200 is_list=True",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC005",
+      "step": 2,
+      "description": "GET /api/photos without auth → 401",
+      "expected": "401",
+      "actual": "401 {\"detail\":\"Not authenticated\"}",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC005",
+      "step": 3,
+      "description": "GET /api/photos with auth → 200 (even if empty)",
+      "expected": "200 + list (possibly empty)",
+      "actual": "200 count=5",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC006",
+      "step": 1,
+      "description": "POST /api/photos with no file → 400/422",
+      "expected": "400 or 422",
+      "actual": "422 {\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"file\"],\"msg\":\"Field required\",\"input",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC006",
+      "step": 2,
+      "description": "POST /api/photos with no description → 400/422 or 200",
+      "expected": "400/422 (or 200 if nullable)",
+      "actual": "201 {\"id\":6,\"image_url\":\"/uploads/5a5b45f4-b8b7-453e-bf3b-3a2db7481e0a.png\",\"descrip",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC006",
+      "step": 3,
+      "description": "POST /api/photos with valid file+desc+keywords → 200/201",
+      "expected": "200 or 201",
+      "actual": "201 id=7",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC006",
+      "step": 4,
+      "description": "Uploaded photo appears in GET /api/photos",
+      "expected": "id 7 in list",
+      "actual": "ids=[7, 6, 5, 4, 3]",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC006",
+      "step": 5,
+      "description": "POST /api/photos without auth → 401",
+      "expected": "401",
+      "actual": "401 {\"detail\":\"Not authenticated\"}",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC007",
+      "step": 1,
+      "description": "PUT /api/photos/{id} with empty description → 400/422 or 200",
+      "expected": "400/422 (or 200 if nullable)",
+      "actual": "200 {\"id\":7,\"description\":\"\",\"keywords\":\"바다\"}",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC007",
+      "step": 2,
+      "description": "PUT /api/photos/{id} with valid data → 200",
+      "expected": "200",
+      "actual": "200 {\"id\":7,\"description\":\"updated desc\",\"keywords\":\"바다,수정\"}",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC007",
+      "step": 3,
+      "description": "PUT /api/photos/{id} by non-owner → 403",
+      "expected": "403",
+      "actual": "403 {\"detail\":\"Not authorized\"}",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC008",
+      "step": 1,
+      "description": "GET /api/photos/search?keyword=바다 → 200 + matches",
+      "expected": "200 + list",
+      "actual": "200 count=3",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC008",
+      "step": 2,
+      "description": "GET /api/photos/search?keyword= (empty) → 400 or empty list",
+      "expected": "400 or 200+empty",
+      "actual": "200 [{\"id\":1,\"user_id\":1,\"username\":\"kms_0109\",\"image_url\":\"/uploads/c92784ba-5832-4",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC008",
+      "step": 3,
+      "description": "Search for non-existent keyword → 200 + empty list",
+      "expected": "200 + []",
+      "actual": "200 body=[]",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC008",
+      "step": 4,
+      "description": "Search without auth → 200 (public endpoint)",
+      "expected": "200",
+      "actual": "200 [{\"id\":3,\"user_id\":5,\"username\":\"testuser_tc001\",\"image_url\"",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC009",
+      "step": 1,
+      "description": "POST /api/messages without auth → 401",
+      "expected": "401",
+      "actual": "401 {\"detail\":\"Not authenticated\"}",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC009",
+      "step": 2,
+      "description": "POST /api/messages with empty content → 400/422",
+      "expected": "400 or 422",
+      "actual": "422 {\"detail\":[{\"type\":\"value_error\",\"loc\":[\"body\",\"content\"],\"msg\":\"Value error, Co",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC009",
+      "step": 3,
+      "description": "POST /api/messages valid content to other user → 200/201",
+      "expected": "200 or 201",
+      "actual": "201 id=11",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC009",
+      "step": 4,
+      "description": "POST /api/messages to self → 400",
+      "expected": "400",
+      "actual": "400 {\"detail\":\"Cannot send message to yourself\"}",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC010",
+      "step": 1,
+      "description": "GET /api/messages (receiver) → 200 + list",
+      "expected": "200 + list",
+      "actual": "200 is_list=True count=3",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC010",
+      "step": 2,
+      "description": "Reply with empty content → 400/422",
+      "expected": "400 or 422",
+      "actual": "422 {\"detail\":[{\"type\":\"value_error\",\"loc\":[\"body\",\"content\"],\"msg\":\"Value error, Co",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC010",
+      "step": 3,
+      "description": "Reply with valid content → 200/201",
+      "expected": "200 or 201",
+      "actual": "201 {\"id\":12,\"sender_id\":6,\"receiver_id\":5,\"content\":\"답장 테스트\",\"parent_id\":11,\"create",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC010",
+      "step": 4,
+      "description": "DELETE /api/messages/{id} → 200",
+      "expected": "200",
+      "actual": "200 {\"message\":\"Message deleted\"}",
+      "result": "Pass"
+    },
+    {
+      "tc": "TC010",
+      "step": 5,
+      "description": "GET /api/messages after delete → message no longer present",
+      "expected": "id 11 not in list",
+      "actual": "remaining=[5, 4]",
+      "result": "Pass"
+    }
+  ]
+}
