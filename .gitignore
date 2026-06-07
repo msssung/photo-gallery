@@ -225,3 +225,7 @@ dist/
 
 # 환경변수
 .env
+
+# Uploaded images
+uploads/*
+!uploads/.gitkeep

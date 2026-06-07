@@ -112,6 +112,41 @@ export default function MainPage() {
           {isLoggedIn ? (
             <>
               <SearchBar onSearch={handleSearch} />
+              <p className="section-title">My Gallery</p>
+              {photos.filter((p) => p.username === currentUsername).length === 0 ? (
+                <p className="section-empty">아직 업로드한 사진이 없습니다.</p>
+              ) : (
+                <div className="photo-grid">
+                  {photos.filter((p) => p.username === currentUsername).map((photo) => (
+                    <PhotoCard
+                      key={photo.id}
+                      photo={photo}
+                      isOwner={true}
+                      onDm={() => handleDmOpen(photo.user_id, photo.username)}
+                      onUpdate={handlePhotoUpdate}
+                    />
+                  ))}
+                </div>
+              )}
+              <p className="section-title section-title--others">Others' Gallery</p>
+              {photos.filter((p) => p.username !== currentUsername).length === 0 ? (
+                <p className="empty">사진이 없습니다.</p>
+              ) : (
+                <div className="photo-grid">
+                  {photos.filter((p) => p.username !== currentUsername).map((photo) => (
+                    <PhotoCard
+                      key={photo.id}
+                      photo={photo}
+                      isOwner={false}
+                      onDm={() => handleDmOpen(photo.user_id, photo.username)}
+                      onUpdate={handlePhotoUpdate}
+                    />
+                  ))}
+                </div>
+              )}
+            </>
+          ) : (
+            <>
               {photos.length === 0 ? (
                 <p className="empty">사진이 없습니다.</p>
               ) : (
@@ -128,8 +163,6 @@ export default function MainPage() {
                 </div>
               )}
             </>
-          ) : (
-            <p className="empty">사진을 보려면 로그인하세요.</p>
           )}
         </main>
       </div>

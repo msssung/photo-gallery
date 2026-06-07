@@ -45,9 +45,10 @@ export default function PhotoCard({ photo, isOwner, onDm, onUpdate }) {
             {photo.description && <p>{photo.description}</p>}
             {photo.keywords && <p className="keywords">#{photo.keywords}</p>}
             <div className="card-actions">
-              <button onClick={onDm}>DM</button>
-              {isOwner && (
+              {isOwner ? (
                 <button className="btn-secondary" onClick={() => setEditing(true)}>수정</button>
+              ) : (
+                <button onClick={onDm}>DM</button>
               )}
             </div>
           </>

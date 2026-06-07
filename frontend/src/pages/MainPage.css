@@ -121,6 +121,25 @@
   background: #3D2B20;
 }
 
+/* ── Section Titles ── */
+
+.main-container .section-title {
+  font-size: 16px;
+  color: #C17F5A;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.main-container .section-title--others {
+  margin-top: 32px;
+}
+
+.main-container .section-empty {
+  color: #7A6055;
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
 /* ── Photo Grid & Cards ── */
 
 .main-container .photo-grid {
@@ -179,7 +198,7 @@
 
 .main-container .card-actions button.btn-secondary {
   background: transparent;
-  border: 0.5px solid #3D2B20;
+  border: 0.5px solid #C17F5A;
   color: #A08070;
   border-radius: 6px;
   padding: 5px 12px;
